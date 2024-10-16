@@ -4,6 +4,7 @@ import (
 	"crypto/rand"
 	"fmt"
 	"math/big"
+	"strings"
 )
 
 // Function to generate a random number within a specific range (1 to 30)
@@ -37,25 +38,32 @@ func generateMultipleEntries(min, max int64, slots, count int) []string {
 	return entries
 }
 
-func GenerateStrings() {
+// GenerateStrings generates random entries and returns them in a formatted string
+func GenerateStrings() string {
 	// Set the range for random numbers (1 to 30 for the slots)
 	min := int64(1)
 	max := int64(30)
 
 	// Define how many entries you want to generate
-	numberOfEntries := 100
+	numberOfEntries := 10000
 
 	// Generate multiple entries with exactly 14 digits (7 slots of 2 digits each)
 	slots := 7
 	randomEntries := generateMultipleEntries(min, max, slots, numberOfEntries)
 
-	// Print the generated entries in the desired format
-	fmt.Println("Generated Entries:")
+	// Prepare the output in the desired format
+	var sb strings.Builder
+	sb.WriteString("{")
+
 	for i, entry := range randomEntries {
 		if i < len(randomEntries)-1 {
-			fmt.Printf("\"%s\", ", entry) // Print each entry within double quotes, followed by a comma
+			sb.WriteString(fmt.Sprintf("\"%s\", ", entry)) // Append each entry with a comma
 		} else {
-			fmt.Printf("\"%s\"", entry) // Last entry without a trailing comma
+			sb.WriteString(fmt.Sprintf("\"%s\"", entry)) // Last entry without a trailing comma
 		}
 	}
+	sb.WriteString("}")
+
+	// Return the generated entries in the desired format
+	return sb.String()
 }
