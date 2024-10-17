@@ -1,21 +1,19 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/abdullahwins/go-quick-draw/quickdraw"
 )
 
 func main() {
-	// Get the generated strings
-	generatedNumbers := quickdraw.GenerateStrings()
-	fmt.Println("generatedNumbers:", generatedNumbers)
+	// Generate random numbers
+	numbers := quickdraw.GenerateNumbers()
 
-	quickdraw.FindPatterns()
+	// Find patterns in the generated numbers
+	quickdraw.FindPatterns(numbers)
 
-	quickdraw.SelectWinner()
+	// Example number to match
+	numberToMatch := "21052310050517"
 
-	// Wait for user input before closing
-	fmt.Println("Press Enter to exit...")
-	fmt.Scanln()
+	// Find how many matches the number has
+	quickdraw.SelectWinner(numbers, numberToMatch)
 }

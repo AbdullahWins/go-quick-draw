@@ -47,23 +47,8 @@ func countSlotMatches(numbers []string, numberToMatch string, slotLength int) []
 	return slotMatches
 }
 
-func SelectWinner() {
-	// Example slice of numbers
-	numbers := []string{
-		"21052310050527",
-		"21052310050527",
-		"21022310050527",
-		"21052310050517",
-		"21052310050527",
-		"21051311050527",
-		"23051503112024",
-		"30222728220803",
-		"21051508190208",
-		"21050620052024",
-	}
-
-	// Example number to match
-	numberToMatch := "21052310050517"
+// SelectWinner allows you to input a number to find how many matches it has.
+func SelectWinner(numbers []string, numberToMatch string) {
 	slotLength := 2 // Each slot is 2 digits
 
 	// Count matching slots

@@ -5,18 +5,8 @@ import (
 	"sort"
 )
 
-func FindPatterns() {
-	numbers := []string{
-		"21052310050527",
-		"21052310050517",
-		"21052310050527",
-		"21051311050527",
-		"23051503112024",
-		"30222728220803",
-		"19221508190208",
-		"10190620052024",
-	}
-
+// FindPatterns finds and counts patterns in the given numbers
+func FindPatterns(numbers []string) {
 	slotLength := 2 // Each slot is 2 digits
 	slotCount := 7  // Total slots for each number
 	slotFrequency := make(map[string]int)
