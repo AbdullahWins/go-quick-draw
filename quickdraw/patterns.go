@@ -6,7 +6,7 @@ import (
 )
 
 // FindPatterns finds and counts patterns in the given numbers
-func FindPatterns(numbers []string) {
+func FindPatterns(numbers []string, minMatchedCount int) {
 	slotLength := 2 // Each slot is 2 digits
 	slotCount := 7  // Total slots for each number
 	slotFrequency := make(map[string]int)
@@ -31,7 +31,7 @@ func FindPatterns(numbers []string) {
 
 	var patterns []PatternCount
 	for pattern, count := range slotFrequency {
-		if len(pattern) > 4 && count > 1 { // Only consider patterns longer than 4 digits (2 slots)
+		if len(pattern) > 4 && count >= minMatchedCount { // Only consider patterns longer than 4 digits (2 slots) and meeting min count
 			patterns = append(patterns, PatternCount{Pattern: pattern, Count: count})
 		}
 	}

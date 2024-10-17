@@ -44,7 +44,7 @@ func GenerateNumbers() []string {
 	max := int64(30)
 
 	// Define how many entries you want to generate
-	numberOfEntries := 1000000
+	numberOfEntries := 100000
 
 	// Generate multiple entries with exactly 14 digits (7 slots of 2 digits each)
 	slots := 7

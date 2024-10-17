@@ -13,7 +13,7 @@ type SlotMatch struct {
 }
 
 // countSlotMatches checks how many slots match from the start of the given number.
-func countSlotMatches(numbers []string, numberToMatch string, slotLength int) []SlotMatch {
+func countSlotMatches(numbers []string, numberToMatch string, slotLength int, minMatchedSlots int) []SlotMatch {
 	var slotMatches []SlotMatch // Slice to hold slots and their counts
 
 	// Loop through the numberToMatch to check increasing slot lengths
@@ -28,8 +28,8 @@ func countSlotMatches(numbers []string, numberToMatch string, slotLength int) []
 			}
 		}
 
-		// Add to the slice only if there are 2 or more matches
-		if matchCount >= 2 {
+		// Only add to the slice if the match count meets the minimum slots requirement
+		if matchCount >= 2 && i/slotLength >= minMatchedSlots {
 			slotMatches = append(slotMatches, SlotMatch{Pattern: slotToMatch, Count: matchCount})
 		}
 	}
@@ -48,11 +48,11 @@ func countSlotMatches(numbers []string, numberToMatch string, slotLength int) []
 }
 
 // SelectWinner allows you to input a number to find how many matches it has.
-func SelectWinner(numbers []string, numberToMatch string) {
+func SelectWinner(numbers []string, numberToMatch string, minMatchedSlots int) {
 	slotLength := 2 // Each slot is 2 digits
 
 	// Count matching slots
-	slotMatches := countSlotMatches(numbers, numberToMatch, slotLength)
+	slotMatches := countSlotMatches(numbers, numberToMatch, slotLength, minMatchedSlots)
 
 	// Output the sorted results
 	for _, sm := range slotMatches {
