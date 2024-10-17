@@ -13,6 +13,9 @@ func main() {
 	generations := 1000
 	slotCount := 3
 	filename := "numbers.txt"
+	fromStartCount := 5
+	fromEndCount := 5
+	randomCount := 5
 
 	// Generate random numbers
 	numbers := quickdraw.GenerateNumbers(generations, slotCount)
@@ -42,4 +45,6 @@ func main() {
 	// Find patterns in the generated numbers from random slots
 	quickdraw.FromRandomPatterns(readNumbers, numberToMatch, minMatchedSlots)
 
+	// Find a winner
+	quickdraw.DetermineWinner(readNumbers, fromStartCount, fromEndCount, randomCount)
 }
