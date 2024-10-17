@@ -38,13 +38,13 @@ func generateMultipleEntries(min, max int64, slots, count int) []string {
 }
 
 // GenerateNumbers generates random entries and returns them as an array of strings
-func GenerateNumbers() []string {
+func GenerateNumbers(generations int) []string {
 	// Set the range for random numbers (1 to 30 for the slots)
 	min := int64(1)
 	max := int64(30)
 
 	// Define how many entries you want to generate
-	numberOfEntries := 100000
+	numberOfEntries := generations
 
 	// Generate multiple entries with exactly 14 digits (7 slots of 2 digits each)
 	slots := 7

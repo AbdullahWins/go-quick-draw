@@ -48,7 +48,7 @@ func countSlotMatches(numbers []string, numberToMatch string, slotLength int, mi
 }
 
 // SelectWinner allows you to input a number to find how many matches it has.
-func SelectWinner(numbers []string, numberToMatch string, minMatchedSlots int) {
+func HighestUsedSlots(numbers []string, numberToMatch string, minMatchedSlots int) {
 	slotLength := 2 // Each slot is 2 digits
 
 	// Count matching slots

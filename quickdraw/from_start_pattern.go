@@ -6,7 +6,7 @@ import (
 )
 
 // FindPatterns finds and counts patterns in the given numbers
-func FindPatterns(numbers []string, minMatchedCount int) {
+func FromStartPatterns(numbers []string, minMatchedCount int) {
 	slotLength := 2 // Each slot is 2 digits
 	slotCount := 7  // Total slots for each number
 	slotFrequency := make(map[string]int)
