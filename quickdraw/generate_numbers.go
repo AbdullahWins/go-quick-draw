@@ -16,9 +16,9 @@ func generateRandomNumber(min, max int64) (int64, error) {
 }
 
 // Function to generate a single entry with 14 digits in the specified format
-func generateEntry(min, max int64, slots int) string {
+func generateEntry(min, max int64, slotCount int) string {
 	entry := ""
-	for i := 0; i < slots; i++ { // Generate a number for each slot
+	for i := 0; i < slotCount; i++ { // Generate a number for each slot
 		number, err := generateRandomNumber(min, max)
 		if err != nil {
 			panic(err) // Handle error if needed
@@ -29,16 +29,16 @@ func generateEntry(min, max int64, slots int) string {
 }
 
 // Function to generate multiple entries
-func generateMultipleEntries(min, max int64, slots, count int) []string {
+func generateMultipleEntries(min, max int64, slotCount, count int) []string {
 	entries := make([]string, count)
 	for i := 0; i < count; i++ {
-		entries[i] = generateEntry(min, max, slots)
+		entries[i] = generateEntry(min, max, slotCount)
 	}
 	return entries
 }
 
 // GenerateNumbers generates random entries and returns them as an array of strings
-func GenerateNumbers(generations int) []string {
+func GenerateNumbers(generations int, slotCount int) []string {
 	// Set the range for random numbers (1 to 30 for the slots)
 	min := int64(1)
 	max := int64(30)
@@ -47,6 +47,5 @@ func GenerateNumbers(generations int) []string {
 	numberOfEntries := generations
 
 	// Generate multiple entries with exactly 14 digits (7 slots of 2 digits each)
-	slots := 7
-	return generateMultipleEntries(min, max, slots, numberOfEntries)
+	return generateMultipleEntries(min, max, slotCount, numberOfEntries)
 }

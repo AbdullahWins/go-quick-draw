@@ -8,17 +8,18 @@ import (
 )
 
 func main() {
-	numberToMatch := "19101627121315"
-	// maxOccurrences := 2
-	minMatchedSlots := 6
-	// generations := 300000
+	numberToMatch := "191016"
+	minMatchedSlots := 2
+	maxOccurrences := 2
+	generations := 1000
+	slotCount := 3
 	filename := "numbers.txt"
 
 	// Generate random numbers
-	// numbers := quickdraw.GenerateNumbers(generations)
-	// if err := quickdraw.GenerateAndSaveNumbers(numbers, filename); err != nil {
-	// 	log.Printf("Error saving numbers: %v\n", err)
-	// }
+	numbers := quickdraw.GenerateNumbers(generations, slotCount)
+	if err := quickdraw.GenerateAndSaveNumbers(numbers, filename); err != nil {
+		log.Printf("Error saving numbers: %v\n", err)
+	}
 
 	// Read numbers from the file
 	readNumbers, err := quickdraw.ReadNumbersFromFile(filename)
@@ -28,13 +29,13 @@ func main() {
 	}
 
 	// Find the highest used slots
-	// quickdraw.HighestUsedSlots(readNumbers, numberToMatch, minMatchedSlots)
+	quickdraw.HighestUsedSlots(readNumbers, numberToMatch, minMatchedSlots)
 
 	// Find the lowest used slots
-	// quickdraw.LowestUsedSlots(numbers, maxOccurrences)
+	quickdraw.LowestUsedSlots(readNumbers, maxOccurrences, slotCount)
 
 	// Find patterns in the generated numbers
-	// quickdraw.FromStartPatterns(readNumbers, minMatchedSlots)
+	quickdraw.FromStartPatterns(readNumbers, minMatchedSlots, slotCount)
 
 	// Call the function to select winning patterns
 	quickdraw.CustomPattern(readNumbers, numberToMatch, minMatchedSlots)
