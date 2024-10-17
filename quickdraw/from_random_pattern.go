@@ -63,8 +63,8 @@ func countMatches(numbers []string, targetNumber string) ([]MatchResult, map[str
 	return matches, numberMatchCounts
 }
 
-// CustomPattern allows you to input a number to find how many matches it has.
-func CustomPattern(numbers []string, targetNumber string, minMatchedSlots int) {
+// FromRandomPatterns allows you to input a number to find how many matches it has.
+func FromRandomPatterns(numbers []string, targetNumber string, minMatchedSlots int) {
 	// Count matching slots
 	slotPatternMatches, numberMatchCounts := countMatches(numbers, targetNumber)
 

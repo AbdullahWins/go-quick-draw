@@ -1,7 +1,6 @@
 package main
 
 import (
-	// "fmt"
 	"log"
 
 	"github.com/abdullahwins/go-quick-draw/quickdraw"
@@ -34,10 +33,13 @@ func main() {
 	// Find the lowest used slots
 	quickdraw.LowestUsedSlots(readNumbers, maxOccurrences, slotCount)
 
-	// Find patterns in the generated numbers
+	// Find patterns in the generated numbers starting from the start
 	quickdraw.FromStartPatterns(readNumbers, minMatchedSlots, slotCount)
 
-	// Call the function to select winning patterns
-	quickdraw.CustomPattern(readNumbers, numberToMatch, minMatchedSlots)
+	// Find patterns in the generated numbers starting from the end
+	quickdraw.FromEndPatterns(readNumbers, minMatchedSlots, slotCount)
+
+	// Find patterns in the generated numbers from random slots
+	quickdraw.FromRandomPatterns(readNumbers, numberToMatch, minMatchedSlots)
 
 }
